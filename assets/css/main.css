@@ -1,0 +1,33 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+button{
+  display: block;
+  color: #797979;
+  background-color: #E0EB2B;
+  font-size: 2em;
+  height: 2em;
+  width: 5em;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.icons{
+  width: 40%;
+}
+
+.title{
+  font-size: 5em;
+  padding-bottom: 0.5em;
+  padding-top: 1.5em;
+
+}
+#searchTextField{
+  width: 15em;
+  font-size: 3em;
+  border: 2px solid #22EFF7;
+
+}

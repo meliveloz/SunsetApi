@@ -3,15 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Sunset</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1 class="title">Sunset & Sunrise</h1>
+    </div>
+    </div> 
+  </div>
+</div>
+<div class="container buttons">
+  <div class="row">
+    <div class="col-xs-6 text-center">
+  <!--    <button type="button" class="today">Today</button> -->
+   <!--   <button type="button" class="anyDay">Any Day</button> -->   
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-12">
+      <h2 class="currentTime"></h2>
+<input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />  
+<input type="hidden" id="city2" name="city2" />
+<input type="hidden" id="cityLat" name="cityLat" />
+<input type="hidden" id="cityLng" name="cityLng" />
+<div id="info" class="container"></div>
+</div>
+</div>
+</div>
 
 <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/css/main.css"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places" type="text/javascript"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
