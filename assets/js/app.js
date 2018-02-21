@@ -81,7 +81,7 @@ var datetime = null,
 
 var update = function() {
   date = moment(new Date());
-  datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+  datetime.html(date.format('MMMM Do YYYY, H:mm:ss a'));
 };
 
 $(document).ready(function() {
@@ -157,7 +157,7 @@ function initialize() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
-// API LUNAR para obtener el tipo de lunas durante la semana.
+// API LUNAR para obtener el tipo de lunas durante la
 
 function load_moon_phases(obj) {
   var gets = [];
@@ -173,7 +173,6 @@ function load_moon_phases(obj) {
       example_2(moon);
       example_3(moon); 
       example_4(moon);
-      example_5(moon);
     }
   };
   xmlhttp.open('GET', url, true);
@@ -181,12 +180,12 @@ function load_moon_phases(obj) {
 }
 document.addEventListener('DOMContentLoaded', function() { 
   var configMoon = {
-    lang: 'es', // 'ca' 'de' 'en' 'es' 'fr' 'it' 'pl' 'pt' 'ru' 'zh' (*)
+    lang: 'en', // 'ca' 'de' 'en' 'es' 'fr' 'it' 'pl' 'pt' 'ru' 'zh' (*)
     month: new Date().getMonth() + 1, // 1  - 12
     year: new Date().getFullYear(),
     size: 100, // pixels
     lightColor: '#FFFF88', // CSS color
-    shadeColor: '#111111', // CSS color
+    shadeColor: 'rgba(0,0,0,0.5)', // CSS color
     sizeQuarter: 20, // pixels
     texturize: false / true - false
   };
@@ -200,7 +199,6 @@ $('.moonButton').on('click', function() {
   $('#todayInfo').addClass('hidden');
   $('#moonInfo').removeClass('hidden');
   $('.moonButton').addClass('hidden');
-  example_1(moon);
 });
 
 function example_1(moon) {
@@ -252,20 +250,6 @@ function example_4(moon){
   html += '<div>' + moon.phase[day].phaseName + " " + Math.round(moon.phase[day].lighting) + '%</div>'
   html += '</div>'
   document.getElementById('ex4').innerHTML = html
-}
-
-
-
-function example_5(moon){
-  var day = new Date().getDate() + 4
-  var dayWeek = moon.phase[day].dayWeek
-  var html = '<div class="moon">'
-  html += '<div>' + moon.nameDay[dayWeek] + '</div>'
-  html += '<div>' + day + ' ' + moon.monthName + ' ' + moon.year + '</div>'
-  html += moon.phase[day].svg
-  html += '<div>' + moon.phase[day].phaseName + ' ' + Math.round(moon.phase[day].lighting) + '%</div>'
-  html += '</div>'
-  document.getElementById('ex5').innerHTML = html
 }
 
 

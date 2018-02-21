@@ -4,7 +4,7 @@ body{
     background-size: 100%;
     background-position: center button;
     background-repeat: no-repeat;
-    ba
+    background-attachment: fixed;
 
 }
 
@@ -14,12 +14,16 @@ button{
     display: block;
     color: white;
     background-color: rgba(0,0,0,0.6);
-    font-size: 2.5em;
+    font-size: 2em;
     height: 3em;
     /* width: 5em; */
     font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 
+}
+button:hover{
+background-color: rgba(208, 139, 113, 0.5);
+color: #F3AF65;
 }
 
 .icons{
@@ -28,10 +32,11 @@ button{
 
 .title{
   font-size: 5em;
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
   padding-top: 1.5em;
   font-weight: bolder;
   color: white;
+  font-family: 'Montserrat Subrayada', sans-serif;
 
 }
 #searchTextField{
@@ -57,7 +62,7 @@ button{
     padding: 0.5em;
 }
 .currentTime{
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
   color: white;
   font-size: 2.5em;
 }
@@ -87,9 +92,13 @@ button{
 }
 .moon{
   background-color:rgba(252, 254, 236, 0.5);
-  display:inline-block;
+
   padding:20px 30px;
   color:black;
   margin:1px;
   font-weight: bolder;
+}
+
+#moonInfo{
+  font-size: 2em;
 }
