@@ -4,8 +4,57 @@ body{
     background-size: 100%;
     background-position: center button;
     background-repeat: no-repeat;
-    ba
+}
+.navbar-default {
+  background-image:none;
+  background-image:none;
+  background-image:none;
+  background-image:none;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
+  filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  border-radius:0px;
+  -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+  background:rgba(0,0,0,0.25);
+}
+.navbar-brand .material-icons {
+  color:#fff;
+  text-shadow:1px 1px 1px #000;
+  margin: 50px;
+}
+.navbar-default .navbar-nav > li > a {
+  color:#fff;
+  text-shadow:1px 1px 1px #000;
+  margin: 10px;
+}
+.menu-nav{
+  margin-top: 10px;
+}
+.logo{
+  width: 150px;
+  margin-left: 30px;
+  margin-top:10px;
+}
+.user-mane:hover{
+  color:#fff;
+}
+.contai-log{
+  border:5px solid #8E8E8E;
+  border-radius: 15px;
+  width: 700px;
+  margin:50px 300px;
+}
+.logo_login{
+  width: 350px;
+}
 
+.omb_btn-facebook {
+  background: #3b5998;
+  margin: 20px;
+}
+.omb_btn-google {
+  background: #c32f10;
+  margin:  20px 20px 60px 20px ;
 }
 
 button{
@@ -19,7 +68,13 @@ button{
     /* width: 5em; */
     font-weight: bold;
   font-family: 'Montserrat', sans-serif;
-
+}
+.img-user{
+  width: 60px;
+  border-radius: 50%;
+  border:1px solid white;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .icons{
