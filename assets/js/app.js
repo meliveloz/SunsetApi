@@ -143,7 +143,7 @@ function initialize() {
   var lat = place.geometry.location.lat();
   var long = place.geometry.location.lng();
                
-  alert('latitude'+' '+lat+','+ 'longitude'+' '+long);
+  //alert('latitude'+' '+lat+','+ 'longitude'+' '+long);
   document.getElementById('city3').value = place.name;
   document.getElementById('cityLat3').value = place.geometry.location.lat();
   document.getElementById('cityLng3').value = place.geometry.location.lng();
