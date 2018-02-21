@@ -18,26 +18,37 @@
 </div>
 <div class="container buttons">
   <div class="row">
-    <div class="col-xs-6 text-center">
-  <!--    <button type="button" class="today">Today</button> -->
-   <!--   <button type="button" class="anyDay">Any Day</button> -->   
+    <div class="col-xs-12 text-center">
+    <button type="button" class="today">Today</button>
+    <button type="button" class="anyDay">Any Day</button>
     </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row text-center">
-    <div class="col-xs-12">
+    <div id='todayInfo' class="col-xs-12 hidden">
       <h2 class="currentTime"></h2>
-<input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />  
-<input type="hidden" id="city2" name="city2" />
-<input type="hidden" id="cityLat" name="cityLat" />
-<input type="hidden" id="cityLng" name="cityLng" />
-<div id="info" class="container"></div>
+      <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />  
+      <input type="hidden" id="city2" name="city2" />
+      <input type="hidden" id="cityLat" name="cityLat" />
+      <input type="hidden" id="cityLng" name="cityLng" />
+      <div id="info" class="container"></div>
+    </div>
+  </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <input class="hidden inputDate" id="date" type="date"> 
+      <input  class="hidden" id="searchWithDate" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />
+      <input type="hidden" id="city3" name="city2" />
+      <input type="hidden" id="cityLat3" name="cityLat" />
+      <input type="hidden" id="cityLng3" name="cityLng" /> 
+      <div id="info2" class="container"></div>
+    </div>
+  </div>
 </div>
-</div>
-
 <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

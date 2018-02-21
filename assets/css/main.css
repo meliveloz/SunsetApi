@@ -1,16 +1,23 @@
 body{
     font-family: 'Montserrat', sans-serif;
+    background-image: url('../images/atardecer.jpeg');
+    background-size: 100%;
+    background-position: center button;
+    background-repeat: no-repeat;
+    ba
 
 }
 
 button{
-  display: block;
-  color: #797979;
-  background-color: #E0EB2B;
-  font-size: 2em;
-  height: 2em;
-  width: 5em;
-  font-weight: bold;
+  border-radius: 0.5em;
+    border: 2px solid white;
+    display: block;
+    color: white;
+    background-color: rgba(0,0,0,0.6);
+    font-size: 2.5em;
+    height: 3em;
+    /* width: 5em; */
+    font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 
 }
@@ -21,13 +28,58 @@ button{
 
 .title{
   font-size: 5em;
-  padding-bottom: 0.5em;
+  padding-bottom: 1em;
   padding-top: 1.5em;
+  font-weight: bolder;
+  color: white;
 
 }
 #searchTextField{
   width: 15em;
   font-size: 3em;
   border: 2px solid #22EFF7;
+  padding: 0.3em;
 
+}
+.today{
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 1em;
+}
+.anyDay{
+  width: 60%;
+  margin-left: 20%;
+}
+.dayLength{
+    background-color: rgba(252, 254, 236, 0.73);
+    font-size: 3em;
+    padding: 0.5em;
+}
+.currentTime{
+  padding-bottom: 1.5em;
+  color: white;
+  font-size: 2.5em;
+}
+.inputDate{
+  font-size: 2em;
+  color: grey;
+  padding: 0.5em;
+}
+#searchWithDate{
+  display: block;
+  width: 15em;
+  font-size: 3em;
+  border: 2px solid #22EFF7;
+  margin-top: 2em;
+
+}
+
+.color-wall{
+    background-color: rgba(252, 254, 236, 0.73);
+    margin-top: 2em;
+    font-size: 2em;
+}
+
+.color-wall h4, h2{
+  font-size: 1.5em;
 }
