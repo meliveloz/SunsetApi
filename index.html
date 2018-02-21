@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Sunset</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Subrayada" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
+
   <div id="sect-nav">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -67,52 +68,75 @@
   </section>
   
   <section id="apis-place">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1 class="title">AT THE RIGTH TIME</h1>
+    </div>
+    </div> 
+  </div>
+</div>
+<div class="container buttons">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2 class="currentTime"></h2>
+      <button type="button" class="today">Sunrise & Sunset : Today</button>
+      <button type="button" class="anyDay">Sunrise & Sunset : Any Day</button>
+      <button type='button' class="moonButton">Do you want to see the moon today?</button>
+
+    </div>
     
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <h1 class="title">Sunset & Sunrise</h1>
-        </div>
-      </div> 
+<div class="container">
+  <div class="row text-center">
+    <div id='todayInfo' class="col-xs-12 hidden">
+      <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />  
+      <input type="hidden" id="city2" name="city2" />
+      <input type="hidden" id="cityLat" name="cityLat" />
+      <input type="hidden" id="cityLng" name="cityLng" />
+      <div id="info" class="container"></div>
     </div>
-
-    <div class="container buttons">
+  </div>
+</div>
+    
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <input  class="hidden" id="searchWithDate" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />
+      <input class="hidden inputDate" id="date" type="date"> 
+      <input type="hidden" id="city3" name="city2" />
+      <input type="hidden" id="cityLat3" name="cityLat" />
+      <input type="hidden" id="cityLng3" name="cityLng" /> 
+      <div id="info2" class="container"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <div id='moonInfo' class="col-xs-12 hidden">
       <div class="row">
-        <div class="col-xs-12 text-center">
-          <button type="button" class="today">Today</button>
-          <button type="button" class="anyDay">Any Day</button>
+        <div col-xs-8>
+          <div id="ex1"></div>
+       </div>
+      </div>
+      <div class="row">
+        <div col-xs-3>
+          <div id="ex2"></div>
+       </div>
+      </div>
+      <div class="row">
+        <div col-xs-3>
+          <div id="ex3"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div col-xs-3>
+          <div id="ex4"></div>
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="row text-center">
-        <div id='todayInfo' class="col-xs-12 hidden">
-          <h2 class="currentTime"></h2>
-          <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />  
-          <input type="hidden" id="city2" name="city2" />
-          <input type="hidden" id="cityLat" name="cityLat" />
-          <input type="hidden" id="cityLng" name="cityLng" />
-          <div id="info" class="container"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <input class="hidden inputDate" id="date" type="date"> 
-          <input  class="hidden" id="searchWithDate" type="text" size="50" placeholder="Enter a location" autocomplete="on" runat="server" />
-          <input type="hidden" id="city3" name="city2" />
-          <input type="hidden" id="cityLat3" name="cityLat" />
-          <input type="hidden" id="cityLng3" name="cityLng" /> 
-          <div id="info2" class="container"></div>
-        </div>
-      </div>
-    </div>
-  
+  </div>
+</div>
   </section>
-
 
 <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
