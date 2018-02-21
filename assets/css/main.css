@@ -46,9 +46,10 @@ button{
   margin-left: 20%;
   margin-bottom: 1em;
 }
-.anyDay{
+.anyDay, .moonButton{
   width: 60%;
   margin-left: 20%;
+  margin-bottom: 1em;
 }
 .dayLength{
     background-color: rgba(252, 254, 236, 0.73);
@@ -64,13 +65,14 @@ button{
   font-size: 2em;
   color: grey;
   padding: 0.5em;
+  margin-top: 1em;
 }
 #searchWithDate{
   display: block;
   width: 15em;
   font-size: 3em;
   border: 2px solid #22EFF7;
-  margin-top: 2em;
+  margin-top: 0.5em;
 
 }
 
@@ -82,4 +84,12 @@ button{
 
 .color-wall h4, h2{
   font-size: 1.5em;
+}
+.moon{
+  background-color:rgba(252, 254, 236, 0.5);
+  display:inline-block;
+  padding:20px 30px;
+  color:black;
+  margin:1px;
+  font-weight: bolder;
 }
