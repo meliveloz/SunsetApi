@@ -54,6 +54,9 @@ function IngresoGoogle() {
       $('#login').css('display', 'none');
       
 
+        
+      
+
 
       //document.querySelector('span.title').textContent = 'Welcome' + name;
 
@@ -179,6 +182,10 @@ window.onload = function () {
 
   InicializarFire();
   //$('#user-img').empty();
+  /*setTimeout(function() { //settimeout llama a una función después de un número especificado de milisegundos.
+        $('.splash').fadeOut(); //despues de transcurridos los 3 segundos se desvanecera
+        }, 1000);
+        */
 };
 
 
