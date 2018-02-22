@@ -1,5 +1,4 @@
 
-// Evento click para ver las horas de sunset y sunrise de hoy
 $('.today').on('click', function() {
   $('.today').addClass('hidden');
   $('.anyDay').addClass('hidden');
