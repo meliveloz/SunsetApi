@@ -4,6 +4,7 @@ body{
     background-size: 100%;
     background-position: center button;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
 }
 .navbar-default {
@@ -32,33 +33,19 @@ body{
   margin-top: 10px;
 }
 .logo{
-  width: 150px;
+  width: 100px;
   margin-left: 30px;
   margin-top:10px;
-}
-.user-mane:hover{
-  color:#fff;
 }
 .contai-log{
   border:5px solid #8E8E8E;
   border-radius: 15px;
-  width: 700px;
-  margin:50px 300px;
+  /*width: 750px;*/
+  margin: 30px 0px 0px 0px;
+  background-color: rgba(0,0,0,0.6);
 }
-.logo_login{
-  width: 350px;
-}
- background-attachment: fixed;
 
 
-.omb_btn-facebook {
-  background: #3b5998;
-  margin: 20px;
-}
-.omb_btn-google {
-  background: #c32f10;
-  margin:  20px 20px 60px 20px ;
-}
 
 button{
   border-radius: 0.5em;
@@ -87,76 +74,230 @@ color: #F3AF65;
 .icons{
   width: 40%;
 }
-
-.title{
-  font-size: 5em;
-  padding-bottom: 0.5em;
-  padding-top: 1.5em;
-  font-weight: bolder;
+@media (min-width: 768px) and (max-width: 1900px) { 
+  .logo_login{
+    max-width: 50%;
+    margin: 30px 0px 15px 120px;
+  }
+  .text-center{
+  margin-left:50px;
   color: white;
-  font-family: 'Montserrat Subrayada', sans-serif;
-
-}
-#searchTextField{
-  width: 15em;
-  font-size: 3em;
-  border: 2px solid #22EFF7;
-  padding: 0.3em;
-
-}
-.today{
-  width: 60%;
-  margin-left: 20%;
-  margin-bottom: 1em;
-}
-.anyDay, .moonButton{
-  width: 60%;
-  margin-left: 20%;
-  margin-bottom: 1em;
-}
-.dayLength{
+  }
+  .omb_btn-facebook {
+    background: #3b5998;
+    color: white;
+    align-content: center;
+    margin:10px 0px 10px 35px;
+    padding: 2px;
+  }
+  .omb_btn-google {
+    background: #c32f10;
+    color: white;
+    align-content: center;
+    margin:10px 0px 10px 35px;
+    padding: 2px;
+  }
+  .omb_btn-twitter {
+    background: #00aced;
+    color: white;
+    align-content: center;
+    margin:10px 0px 10px 35px;
+    padding: 2px;
+  }
+  .omb_btn-github {
+    background: #666666;
+    color: white;
+    align-content: center;
+    margin:10px 0px 30px 35px;
+    padding: 2px;
+  }
+  .title{
+    font-size: 3.7em;
+    margin-top: 150px;
+    font-weight: bolder;
+    color: white;
+    font-family: 'Montserrat Subrayada', sans-serif;
+  }
+  .currentTime{
+    color: white;
+    font-size: 1.5em;
+  }
+  .today{
+    font-size: 1.7em;
+    margin:80px 0px 20px 430px;
+    padding: 0px 21px;
+  }
+  .anyDay{
+    font-size: 1.7em;
+    margin:10px 0px 20px 430px;
+    padding: 0px 10px;
+  }
+  .moonButton{
+    font-size: 1.7em;
+    margin:10px 0px 20px 430px;
+    padding: 0px 14px;
+  }
+  #searchTextField{
+    width: 15em;
+    font-size: 1.5em;
+    border: 2px solid #07a8af;
+    color: #757070;
+    padding: 0.3em;
+    margin-top:50px;
+    margin-left:30px;
+  }
+  .dayLength{
     background-color: rgba(252, 254, 236, 0.73);
-    font-size: 3em;
+    font-size: 2em;
     padding: 0.5em;
-}
-.currentTime{
-  padding-bottom: 1em;
-  color: white;
-  font-size: 2.5em;
-}
-.inputDate{
-  font-size: 2em;
-  color: grey;
-  padding: 0.5em;
-  margin-top: 1em;
-}
-#searchWithDate{
-  display: block;
-  width: 15em;
-  font-size: 3em;
-  border: 2px solid #22EFF7;
-  margin-top: 0.5em;
-
-}
-
-.color-wall{
+    width: 1106px;
+  }
+  .color-wall{
     background-color: rgba(252, 254, 236, 0.73);
     margin-top: 2em;
-    font-size: 2em;
-}
+    /*font-size: em;*/
+  }
 
-.color-wall h4, h2{
+  .color-wall h4, h2{
   font-size: 1.5em;
-}
-.moon{
-  background-color:rgba(252, 254, 236, 0.5);
+  }
+  #searchWithDate{
+    width: 15em;
+    font-size: 1.5em;
+    border: 2px solid #07a8af;
+    padding: 0.3em;
+    display: block;
+    margin-left: 410px;
+    margin-top: 50px;
+  }
+  .inputDate{
+    font-size: 1.5em;
+    color: grey;
+    padding: 0.5em 0.1em;
+    margin-top: 1em;
+  }
+  .moon{
+    background-color:rgba(252, 254, 236, 0.5);
+    padding:20px 30px;
+    color:black;
+    margin:1px;
+    font-weight: bolder;
+  }
+  #moonInfo{
+    font-size: 2em;
+  }
+ }
+ @media (max-width: 767px) { 
+  .logo_login{
+    max-width: 50%;
+    margin: 30px 0px 15px 60px;
+  }
+  .text-center{
+  text-align: center;
+  color: white;
+  }
+  .omb_btn-facebook {
+    background: #3b5998;
+    color: white;
+    align-content: center;
+    margin:10px 0px 10px 0px;
+    padding: 2px;
+  }
+  .omb_btn-google {
+    background: #c32f10;
+    color: white;
+    align-content: center;
+    margin:10px 0px 10px 0px;
+    padding: 2px;
+  }
+  .omb_btn-twitter {
+    background: #00aced;
+    color: white;
+    align-content: center;
+    margin:10px 0px 10px 0px;
+    padding: 2px;
+  }
+  .omb_btn-github {
+    background: #666666;
+    color: white;
+    align-content: center;
+    margin:10px 0px 30px 0px;
+    padding: 2px;
+  }
+  .title{
+    margin-top: 150px;
+    font-weight: bolder;
+    color: white;
+    font-family: 'Montserrat Subrayada', sans-serif;
+  }
+  .currentTime{
+    color: white;
+    font-size: 1.3em;
+  }
+  .today{
+    font-size: 1.2em;
+    margin:80px 0px 20px 60px;
+    padding: 0px 18px;
+  }
+  .anyDay{
+    font-size: 1.2em;
+    margin:10px 0px 20px 60px;
+    padding: 0px 10px;
+  }
+  .moonButton{
+    font-size: 1.2em;
+    margin:10px 0px 20px 60px;
+    padding: 0px 13px;
+  }
+  #searchTextField{
+    width: 15em;
+    font-size: 1.5em;
+    border: 2px solid #07a8af;
+    padding: 0.3em;
+    margin-top:50px;
+    margin-left:30px;
+  }
+  .dayLength{
+    background-color: rgba(252, 254, 236, 0.73);
+    font-size: 1em;
+    padding: 0.5em;
+  }
+  .color-wall{
+    background-color: rgba(252, 254, 236, 0.73);
+    margin-top: 2em;
+    /*font-size: em;*/
+  }
 
-  padding:20px 30px;
-  color:black;
-  margin:1px;
-  font-weight: bolder;
+  .color-wall h4, h2{
+  font-size: 1em;
+  }
+  #searchWithDate{
+    width: 15em;
+    font-size: 1em;
+    border: 2px solid #07a8af;
+    padding: 0.3em;
+    display: block;
+    margin-left: 70px;
+    margin-top: 50px;
+  }
+  .inputDate{
+    font-size: 1em;
+    color: grey;
+    padding: 0.5em 0.1em;
+    margin-top: 1em;
+  }
+  .moon{
+    background-color:rgba(252, 254, 236, 0.5);
+    padding:10px 20px;
+    color:black;
+    margin:1px;
+    font-weight: bolder;
+  }
+  #moonInfo{
+    font-size: 0.7em;
+  }
+  svg{
+    width: 70px;
+  }
 }
-
-#moonInfo{
-  font-size: 2em;
-}
+ 
