@@ -1,3 +1,211 @@
+//------------------ FIREBASE ------------------
+jQuery(document).ready(function($) {
+  $('#sect-nav').hide();
+  $('#apis-place').hide();
+});
+var config = {
+    apiKey: "AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80",
+    authDomain: "login-prueba-f9344.firebaseapp.com",
+    databaseURL: "https://login-prueba-f9344.firebaseio.com",
+    projectId: "login-prueba-f9344",
+    storageBucket: "",
+    messagingSenderId: "130120816145"
+  };
+
+firebase.initializeApp(config);
+
+var loginGoogle = document.getElementById('btn-google');
+var loginFacebook = document.getElementById('btn-facebook');
+var userName = document.getElementById('user-name');
+var userImage = document.getElementById('user-img');
+var cerrarSesion = document.getElementById('cerrar');
+
+
+var database = firebase.database();
+
+var userConect = null;
+var conectkey = '';
+
+loginGoogle.addEventListener('click', IngresoGoogle);
+loginFacebook.addEventListener('click', IngresoFacebook);
+cerrarSesion.addEventListener('click', out);
+//document.getElementById('botonlogout').addEventListener('click', function() {
+//  authService.signOut()
+//})
+
+//cerrarSesion.addEventListener('click', EliminarUserBD);
+//var provider = new firebase.auth.GoogleAuthProvider();
+
+
+function IngresoGoogle() {
+  if(!firebase.auth().currentUser){
+    
+    var provider = new firebase.auth.GoogleAuthProvider();
+    //indico a google que se van a autentificar
+    //provider.addScope('https:wwww.googleapis.com/auth/plus.login');
+
+    firebase.auth().signInWithPopup(provider).then (function(result){
+      var token = result.credential.accesstoken;
+      var user= result.user;
+      var name = result.user.displayName;
+
+      $('#sect-nav').css('display', 'inline-block');
+      $('#apis-place').css('display', 'inline-block');
+      $('#login').css('display', 'none');
+      
+
+
+      //document.querySelector('span.title').textContent = 'Welcome' + name;
+
+  
+
+
+    }).catch (function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      var erroremail = error.email;
+      var credential = error.credential;
+
+      if (errorCode==='auth/acconunt-exists-with-different-credential'){
+        alert ('Es el mismo usuario');
+      }
+    });
+
+  }else{
+    firebase.auth().signOut();
+    
+  }
+}
+
+function IngresoFacebook() {
+  if(!firebase.auth().currentUser){
+    
+    var provider = new firebase.auth.FacebookAuthProvider();
+    //indico a google que se van a autentificar
+    //provider.addScope('https:wwww.googleapis.com/auth/plus.login');
+
+    firebase.auth().signInWithPopup(provider).then (function(result){
+      var token = result.credential.accesstoken;
+      var user= result.user;
+      var name = result.user.displayName;
+
+      
+
+      //document.querySelector('span.title').textContent = 'Welcome' + name;
+
+    }).catch (function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      var erroremail = error.email;
+      var credential = error.credential;
+
+      if (errorCode==='auth/acconunt-exists-with-different-credential'){
+        alert ('Es el mismo usuario');
+      }
+    });
+      }//else{
+   // firebase.auth().signOut();
+ // }
+}
+
+function InicializarFire() {
+
+  firebase.auth().onAuthStateChanged(function(user){
+    console.log(user);
+    if (user) {
+      var displayName = user.displayName;
+      var userPhoto = user.photoURL;
+      
+
+      //document.querySelector('span.user-name').textContent= displayName;
+      userName.textContent = displayName;
+      if  (userPhoto){
+        //userImage.style.backgroundImage = 'url(../' + userPhoto + ')';
+       // userImage.style.backgroundImage = 'url(' +userPhoto+ ')';
+     $('#user-img').append('<img class="img-user" src ='+userPhoto+' >');
+     } //else {
+      // userImage.style.backgroundImage = 'url(../images/profile_placeholder.png)';
+      //}
+     /*
+     userConect = database.ref('/user');
+     AgregarUserBD(user.uid, user.displayName);
+
+     userConect.on('child_added', function(data){
+      console.log('Ha ingresado a la sala' +data.val().name);
+     });
+
+     userConect.on('child_removed', function(data){
+      console.log(data.val().name+ 'Ha cerrado sesión');
+     })*/
+    } else { 
+      firebase.auth().signOut();
+      $('#user-img').empty();
+    }
+  });
+}
+/*
+function AgregarUserBD(uid,name){
+  var conectado = userConect.push({
+    uid:uid,
+    name:name
+  });
+
+  conectkey = conectado.key;
+}
+function EliminarUserBD(){
+  database.ref('/user/'+conectkey).remove();
+  $('#pages2').css ('display', 'none') && $('#page').css ('display', 'block');
+}*/
+
+
+/*función para log out*/
+
+function out(){
+  firebase.auth().signOut().then(function(){
+    console.log("saliendo..");
+    $(document).ready(function(){
+  window.location = "index.html";
+  window.reload();
+  //$('#user-img').empty();
+ //recargo la página nuevamente
+});
+})
+  .catch(function(error){
+ console.log(error);
+  });
+};
+
+window.onload = function () {
+
+  InicializarFire();
+  //$('#user-img').empty();
+};
+
+
+
+
+
+// ------------------- API SUNSET ----------------------------------------
+/*let options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+function success(pos) {
+  let crd = pos.coords;
+
+  sessionStorage.setItem('latitude', crd.latitude);
+  sessionStorage.setItem('longitude', crd.longitude);
+  console.log(sessionStorage.getItem('latitude'));
+  console.log(sessionStorage.getItem('longitude'));
+};
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+};
+
+let latitude = sessionStorage.getItem('latitude');
+let longitude = sessionStorage.getItem('longitude');
+*/
 
 // Evento click para ver las horas de sunset y sunrise de hoy
 $('.today').on('click', function() {
@@ -5,6 +213,7 @@ $('.today').on('click', function() {
   $('.anyDay').addClass('hidden');
   $('#todayInfo').removeClass('hidden');
   $('.moonButton').addClass('hidden');
+
 });
 
 // evento click para ver las horas de sunset y sunrise de cualquier día
@@ -251,5 +460,6 @@ function example_4(moon){
   html += '</div>'
   document.getElementById('ex4').innerHTML = html
 }
+
 
 
