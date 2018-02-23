@@ -16,5 +16,7 @@
     "url": "https://github.com/meliveloz/SunsetApi/issues"
   },
   "homepage": "https://github.com/meliveloz/SunsetApi#readme",
-  "dependencies": {}
+  "dependencies": {
+    "moment-timezone": "^0.5.14"
+  }
 }

@@ -140,6 +140,7 @@ function InicializarFire() {
      userConect.on('child_removed', function(data){
       console.log(data.val().name+ 'Ha cerrado sesión');
      })*/
+     
     } else { 
       firebase.auth().signOut();
       $('#user-img').empty();
@@ -161,7 +162,7 @@ function EliminarUserBD(){
 }*/
 
 
-/*función para log out*/
+//función para log out
 
 function out(){
   firebase.auth().signOut().then(function(){
@@ -186,7 +187,7 @@ window.onload = function () {
         $('.splash').fadeOut(); //despues de transcurridos los 3 segundos se desvanecera
         }, 1000);
         */
-};
+/*};
 
 
 
@@ -219,9 +220,7 @@ $('.today').on('click', function() {
   $('.anyDay').addClass('hidden');
   $('#todayInfo').removeClass('hidden');
   $('.moonButton').addClass('hidden');
-
 });
-
 // evento click para ver las horas de sunset y sunrise de cualquier día
 $('.anyDay').on('click', function() {
   $('.today').addClass('hidden');
@@ -244,7 +243,6 @@ function initialize1() {
     document.getElementById('cityLat').value = place.geometry.location.lat();
     document.getElementById('cityLng').value = place.geometry.location.lng();
   
-
     fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${long}&formatted=0`)
       .then((response)=>{
         return response.json();
@@ -256,30 +254,34 @@ function initialize1() {
         let sunset = data.results.sunset;
         let lengthDay = data.results.day_length;
         console.log(sunrise);
-
-        // Cambiando hora UTC sunrise a local con momentjs
-        let dateFormat = 'HH:mm:ss a';
-        let testDateUtc = moment.utc(sunrise);
-        let localDate = testDateUtc.local();
-        let localDate1 = localDate.format(dateFormat);
-        // Cambiando hora UTC sunset a local con momentjs
-        let dateFormat2 = 'HH:mm:ss a';
-        let testDateUtc2 = moment.utc(sunset);
-        let localDate3 = testDateUtc2.local();
-        let localDate2 = localDate3.format(dateFormat2);
-
-        $('#info').empty();
-        $('#info').append(`
+        // accedemos a la data de timezonedb de la cual sacaremos con latitud y longitud
+        // la zoneName que nos permitira cambiar la hora de absolutamente TODO EL MUNDO
+        // ya que la hora viene en UTC , debemos cambiarlo a la hora local de cada punto
+        // geográfico que depende de un zone name .
+        // con esta zone name obtenida , utilizamos la libreria moment-time-zone.
+      
+        fetch(`http://api.timezonedb.com/v2/get-time-zone?key=ECWKIQLLJOJ9&format=json&by=position&lat=${lat}&lng=${long}`)
+          .then((response)=>{
+            return response.json();
+          })
+          .then((data)=>{
+            console.log(data.zoneName);
+            // usando la zone name obtenida y hacemos la conversión con moment time zone.
+            var globalSunrise = moment.tz(sunrise, data.zoneName).format('HH:mm:ss a');
+      
+            var globalSunset = moment.tz(sunset, data.zoneName).format('HH:mm:ss a');
+            $('#info').empty();
+            $('#info').append(`
         <div class='row text-center'>
           <div class='col-xs-6 color-wall'>
           <img src='assets/images/sunrise-512.png' class = 'icons'>
             <h4>Sunrise Time<h4>
-            <h2>${localDate1}<h2>
+            <h2>${globalSunrise}<h2>
           </div>
           <div class='col-xs-6 color-wall'>
           <img src='assets/images/sunset-512.png' class ='icons'>
             <h4>Sunset Time<h4>
-            <h2>${localDate2} <h2>
+            <h2>${globalSunset}<h2>
           </div>
         </div>
         <div class='row'>
@@ -287,6 +289,7 @@ function initialize1() {
             <h2 class='dayLength'>Day length: ${((lengthDay / 60) / 60).toFixed(2)} hr</h2>
         <div>
         <div>`);
+          });
       });
   });
 }
@@ -336,29 +339,29 @@ function initialize() {
           let sunset = data.results.sunset;
           let lengthDay = data.results.day_length;
 
-          // Cambiando hora UTC sunrise a local con momentjs
-          let dateFormat = 'HH:mm:ss a';
-          let testDateUtc = moment.utc(sunrise);
-          let localDate = testDateUtc.local();
-          let localDate1 = localDate.format(dateFormat);
-          // Cambiando hora UTC sunset a local con momentjs
-          let dateFormat2 = 'HH:mm:ss a';
-          let testDateUtc2 = moment.utc(sunset);
-          let localDate3 = testDateUtc2.local();
-          let localDate2 = localDate3.format(dateFormat2);
+          fetch(`http://api.timezonedb.com/v2/get-time-zone?key=ECWKIQLLJOJ9&format=json&by=position&lat=${lat}&lng=${long}`)
+            .then((response)=>{
+              return response.json();
+            })
+            .then((data)=>{
+              console.log(data.zoneName);
+              // usando la zone name obtenida y hacemos la conversión con moment time zone.
+              var globalSunrise = moment.tz(sunrise, data.zoneName).format('HH:mm:ss a');
+      
+              var globalSunset = moment.tz(sunset, data.zoneName).format('HH:mm:ss a');
 
-          $('#info2').empty();
-          $('#info2').append(`
+              $('#info2').empty();
+              $('#info2').append(`
         <div class='row text-center'>
           <div class='col-xs-6 color-wall'>
           <img src='assets/images/sunrise-512.png' class = 'icons'>
             <h4>Sunrise Time<h4>
-            <h2>${localDate1}<h2>
+            <h2>${globalSunrise}<h2>
           </div>
           <div class='col-xs-6 color-wall'>
           <img src='assets/images/sunset-512.png' class ='icons'>
             <h4>Sunset Time<h4>
-            <h2>${localDate2}<h2>
+            <h2>${globalSunset}<h2>
           </div>
         </div>
         <div class='row'>
@@ -366,10 +369,11 @@ function initialize() {
             <h2 class='dayLength'>Day length:${((lengthDay / 60) / 60).toFixed(2)} hr</h2>
         <div>
         <div>`);
+            });
         });
     });
   });
-}
+};
 google.maps.event.addDomListener(window, 'load', initialize);
 
 // API LUNAR para obtener el tipo de lunas durante la
