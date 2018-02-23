@@ -252,7 +252,7 @@ window.onload = function () {
         $('.splash').fadeOut(); //despues de transcurridos los 3 segundos se desvanecera
         }, 1000);
         */
-/*};
+};
 
 
 
@@ -535,7 +535,7 @@ function example_4(moon){
   html += '<div>' + moon.phase[day].phaseName + " " + Math.round(moon.phase[day].lighting) + '%</div>'
   html += '</div>'
   document.getElementById('ex4').innerHTML = html
-}
+};
 
 
 
