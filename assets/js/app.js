@@ -2,6 +2,7 @@
 jQuery(document).ready(function($) {
   $('#sect-nav').hide();
   $('#apis-place').hide();
+
 });
 var config = {
     apiKey: "AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80",
@@ -16,9 +17,12 @@ firebase.initializeApp(config);
 
 var loginGoogle = document.getElementById('btn-google');
 var loginFacebook = document.getElementById('btn-facebook');
+var loginGithub = document.getElementById('btn-github');
 var userName = document.getElementById('user-name');
 var userImage = document.getElementById('user-img');
 var cerrarSesion = document.getElementById('cerrar');
+var goBack = document.getElementById('search-btn');
+
 
 
 var database = firebase.database();
@@ -28,7 +32,9 @@ var conectkey = '';
 
 loginGoogle.addEventListener('click', IngresoGoogle);
 loginFacebook.addEventListener('click', IngresoFacebook);
+//loginGithub.addEventListener('click', IngresoGitHub);
 cerrarSesion.addEventListener('click', out);
+goBack.addEventListener('click', back);
 //document.getElementById('botonlogout').addEventListener('click', function() {
 //  authService.signOut()
 //})
@@ -36,6 +42,13 @@ cerrarSesion.addEventListener('click', out);
 //cerrarSesion.addEventListener('click', EliminarUserBD);
 //var provider = new firebase.auth.GoogleAuthProvider();
 
+/*
+$('#search-btn').on('click', function() {
+  $('.today').addClass('hidden');
+  $('.anyDay').addClass('hidden');
+  $('.moonButton').addClass('hidden');
+  
+});*/
 
 function IngresoGoogle() {
   if(!firebase.auth().currentUser){
@@ -92,8 +105,12 @@ function IngresoFacebook() {
       var user= result.user;
       var name = result.user.displayName;
 
-      
+      $('#sect-nav').css('display', 'inline-block');
+      $('#apis-place').css('display', 'inline-block');
+      $('#login').css('display', 'none');
 
+      
+      console.log(user);
       //document.querySelector('span.title').textContent = 'Welcome' + name;
 
     }).catch (function(error) {
@@ -106,10 +123,45 @@ function IngresoFacebook() {
         alert ('Es el mismo usuario');
       }
     });
-      }//else{
-   // firebase.auth().signOut();
- // }
+      }else{
+    firebase.auth().signOut();
+  }
 }
+/*
+function IngresoGitHub() {
+  if(!firebase.auth().currentUser){
+    
+    var provider = new firebase.auth.GithubAuthProvider();
+    //indico a google que se van a autentificar
+    //provider.addScope('https:wwww.googleapis.com/auth/plus.login');
+
+    firebase.auth().signInWithPopup(provider).then (function(result){
+      var token = result.credential.accesstoken;
+      var user= result.user;
+      var name = result.user.displayName;
+
+      $('#sect-nav').css('display', 'inline-block');
+      $('#apis-place').css('display', 'inline-block');
+      $('#login').css('display', 'none');
+
+      
+      console.log(user);
+      //document.querySelector('span.title').textContent = 'Welcome' + name;
+
+    }).catch (function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      var erroremail = error.email;
+      var credential = error.credential;
+
+      if (errorCode==='auth/acconunt-exists-with-different-credential'){
+        alert ('Es el mismo usuario');
+      }
+    });
+      }else{
+    firebase.auth().signOut();
+  }
+}*/
 
 function InicializarFire() {
 
@@ -179,6 +231,19 @@ function out(){
   });
 };
 
+function back(){
+  $(document).ready(function(){
+    /*$('.today').addClass('hidden');
+    $('.anyDay').addClass('hidden');
+    $('.moonButton').addClass('hidden');*/
+    $('#apis-place').show();
+  //$('#user-img').empty();
+ //recargo la página nuevamente
+});
+};
+
+
+
 window.onload = function () {
 
   InicializarFire();
@@ -188,6 +253,7 @@ window.onload = function () {
         }, 1000);
         */
 /*};
+
 
 
 
@@ -470,6 +536,7 @@ function example_4(moon){
   html += '</div>'
   document.getElementById('ex4').innerHTML = html
 }
+
 
 
 
