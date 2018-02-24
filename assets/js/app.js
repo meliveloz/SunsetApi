@@ -1,11 +1,10 @@
-//------------------ FIREBASE ------------------
+// ------------------ FIREBASE ------------------
 jQuery(document).ready(function($) {
   $('#sect-nav').hide();
   $('#apis-place').hide();
-
 });
 var config = {
-    apiKey: "AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80",
+  apiKey: 'AIzaSyDhWCc6S10Usx70Q8NhSZnlGjjO66IYZ80',
     authDomain: "login-prueba-f9344.firebaseapp.com",
     databaseURL: "https://login-prueba-f9344.firebaseio.com",
     projectId: "login-prueba-f9344",
@@ -172,9 +171,9 @@ function InicializarFire() {
       var userPhoto = user.photoURL;
       
 
-      //document.querySelector('span.user-name').textContent= displayName;
+      // document.querySelector('span.user-name').textContent= displayName;
       userName.textContent = displayName;
-      if  (userPhoto){
+      if(userPhoto) {
         //userImage.style.backgroundImage = 'url(../' + userPhoto + ')';
        // userImage.style.backgroundImage = 'url(' +userPhoto+ ')';
      $('#user-img').append('<img class="img-user" src ='+userPhoto+' >');
@@ -232,33 +231,26 @@ function out(){
 };
 
 function back(){
-  $(document).ready(function(){
-    /*$('.today').addClass('hidden');
+  $(document).ready(function() {
+    /* $('.today').addClass('hidden');
     $('.anyDay').addClass('hidden');
     $('.moonButton').addClass('hidden');*/
     $('#apis-place').show();
-  //$('#user-img').empty();
- //recargo la página nuevamente
-});
+  // $('#user-img').empty();
+    // recargo la página nuevamente
+  });
 };
 
 
 
-window.onload = function () {
-
+window.onload = function() {
   InicializarFire();
-  //$('#user-img').empty();
-  /*setTimeout(function() { //settimeout llama a una función después de un número especificado de milisegundos.
+  // $('#user-img').empty();
+  /* setTimeout(function() { //settimeout llama a una función después de un número especificado de milisegundos.
         $('.splash').fadeOut(); //despues de transcurridos los 3 segundos se desvanecera
         }, 1000);
         */
 };
-
-
-
-
-
-
 // ------------------- API SUNSET ----------------------------------------
 /*let options = {
   enableHighAccuracy: true,
@@ -340,12 +332,12 @@ function initialize1() {
             $('#info').append(`
         <div class='row text-center'>
           <div class='col-xs-6 color-wall'>
-          <img src='assets/images/sunrise-512.png' class = 'icons'>
+          <img src='assets/images/sunrise.png' class = 'icons'>
             <h4>Sunrise Time<h4>
             <h2>${globalSunrise}<h2>
           </div>
           <div class='col-xs-6 color-wall'>
-          <img src='assets/images/sunset-512.png' class ='icons'>
+          <img src='assets/images/sunset.png' class ='icons2'>
             <h4>Sunset Time<h4>
             <h2>${globalSunset}<h2>
           </div>
@@ -420,12 +412,12 @@ function initialize() {
               $('#info2').append(`
         <div class='row text-center'>
           <div class='col-xs-6 color-wall'>
-          <img src='assets/images/sunrise-512.png' class = 'icons'>
+          <img src='assets/images/sunrise.png' class = 'icons'>
             <h4>Sunrise Time<h4>
             <h2>${globalSunrise}<h2>
           </div>
           <div class='col-xs-6 color-wall'>
-          <img src='assets/images/sunset-512.png' class ='icons'>
+          <img src='assets/images/sunset.png' class ='icons2'>
             <h4>Sunset Time<h4>
             <h2>${globalSunset}<h2>
           </div>
