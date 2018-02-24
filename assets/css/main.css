@@ -1,6 +1,6 @@
 
 body { 
-  background: url('../images/pexels-photo-120276.jpeg');
+  background: url('../images/fondo3.jpeg');
   background-repeat:  no-repeat ;
   background-position: center center;
   background-attachment: fixed; 
@@ -9,6 +9,13 @@ body {
   -o-background-size: cover;
   background-size: cover;
    font-family: 'Montserrat', sans-serif;
+}
+.login{
+  color: white;
+}
+
+html{
+  overflow-x: hidden;
 }
 .navbar-default {
   background-image:none;
@@ -45,7 +52,7 @@ input::placeholder {
   margin-top:10px;
 }
 .contai-log{
-  border:5px solid #8E8E8E;
+  border:5px solid white;
   border-radius: 15px;
   /*width: 750px;*/
   margin: 30px 0px 0px 0px;
@@ -74,8 +81,8 @@ button{
   margin-bottom: 10px;
 }
 button:hover{
-background-color: rgba(208, 139, 113, 0.5);
-color: #F3AF65;
+background-color: rgba(208, 139, 113, 0.7);
+color: white;
 }
 
 .icons{
@@ -122,12 +129,16 @@ color: #F3AF65;
     font-size: 3.7em;
     margin-top: 150px;
     font-weight: bolder;
+    padding-left: 10%;
     color: white;
+    background-color: rgba(0,0,0,0.4);
     font-family: 'Montserrat Subrayada', sans-serif;
   }
   .currentTime{
     color: white;
-    font-size: 1.5em;
+    font-size: 1.6em;
+    font-weight: bolder;
+    background-color: rgba(0,0,0,0.4);
   }
   .today{
     font-size: 1.7em;
@@ -147,9 +158,8 @@ color: #F3AF65;
   #searchTextField{
     width: 15em;
     font-size: 1.5em;
-    border: none;
-    border-bottom: : 4px solid #07a8af;
-    color: #757070;
+    border-bottom: 2px solid #5CC7FF;
+    color: white;
     padding: 0.3em;
     margin-top:50px;
     margin-left:30px;
@@ -175,12 +185,10 @@ color: #F3AF65;
   #searchWithDate{
     width: 15em;
     font-size: 1.5em;
-    border: 2px solid #07a8af;
     padding: 0.3em;
     display: block;
     margin-left: 410px;
     margin-top: 50px;
-    border: none;
     border-bottom: : 4px solid #07a8af;
     background-color: transparent;
   }
@@ -243,10 +251,16 @@ color: #F3AF65;
     font-weight: bolder;
     color: white;
     font-family: 'Montserrat Subrayada', sans-serif;
+    padding-left: 10%;
+    background-color: rgba(0,0,0,0.4);
+    
+
   }
   .currentTime{
     color: white;
-    font-size: 1.3em;
+    font-size: 1.6em;
+    font-weight: bolder;
+    background-color: rgba(0,0,0,0.4);
   }
   .today{
     font-size: 1.2em;
@@ -265,9 +279,9 @@ color: #F3AF65;
   }
   #searchTextField{
     width: 15em;
+    color: white;
     font-size: 1.5em;
-    border:none;
-    border-bottom: 4px solid #07a8af;
+    border-bottom: 4px solid #5CC7FF;
     padding: 0.3em;
     margin-top:50px;
     margin-left:30px;
@@ -294,7 +308,6 @@ color: #F3AF65;
     display: block;
     margin-left: 70px;
     margin-top: 50px;
-    border: none;
     border-bottom:4px solid #07a8af;
     background-color: transparent;
   }
